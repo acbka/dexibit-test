@@ -44,7 +44,6 @@ interface TableInterface {
 }
 
 const Table = ({ starships }: TableInterface) => {
-  console.log("table");
   return (
     <>
       <Title>Starships</Title>
