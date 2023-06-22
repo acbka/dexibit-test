@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
-import { StarshipInterface } from "../App";
+import { StarshipInterface } from "../pages/HomePage";
 
 type ColumnProps = {
   size?: number;
@@ -62,7 +61,7 @@ const Table = ({ starships }: TableInterface) => {
               {name}
             </Column>
             <Column size={3} top="true">
-              {max_atmosphering_speed}
+              {parseInt(max_atmosphering_speed) || "n/a"}
             </Column>
           </Row>
         ))}
