@@ -59,3 +59,17 @@ test("an error page renders", async () => {
   );
   expect(text).toBeInTheDocument();
 });
+
+test("an error page is rendered if starships array is empty", async () => {
+  server.use(
+    rest.get("https://swapi.dev/api/starships", (_, res, ctx) => {
+      return res(ctx.status(200), ctx.json({ results: [] }));
+    })
+  );
+  render(<App />, { wrapper: BrowserRouter });
+
+  const text = await screen.findByText(
+    "You underestimate the power of the dark side"
+  );
+  expect(text).toBeInTheDocument();
+});
